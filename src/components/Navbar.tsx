@@ -40,7 +40,7 @@ const Navbar = () => {
               <Link 
                 key={item.name}
                 to={item.path} 
-                className="text-gray-700 hover:text-primary transition-colors"
+                className="text-gray-800 hover:text-primary transition-colors"
               >
                 {item.name}
               </Link>
@@ -51,7 +51,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" className="text-gray-700">
+                <Button variant="ghost" className="text-gray-800">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
@@ -69,7 +69,7 @@ const Navbar = () => {
                     <Link
                       key={item.name}
                       to={item.path}
-                      className="text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                      className="text-lg font-medium text-gray-800 hover:text-primary transition-colors"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}

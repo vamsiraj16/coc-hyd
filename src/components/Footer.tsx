@@ -16,7 +16,7 @@ const Footer = () => {
               />
               <h3 className="text-lg font-semibold text-primary">Church of Christ</h3>
             </div>
-            <p className="text-gray-600 mb-4">A community of believers dedicated to following Jesus Christ and sharing His love with the world.</p>
+            <p className="text-gray-700 mb-4">A community of believers dedicated to following Jesus Christ and sharing His love with the world.</p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-600 hover:text-primary">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -44,28 +44,28 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-800">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-600 hover:text-primary">Home</Link></li>
-              <li><Link to="/about" className="text-gray-600 hover:text-primary">About Us</Link></li>
-              <li><Link to="/services" className="text-gray-600 hover:text-primary">Services</Link></li>
-              <li><Link to="/events" className="text-gray-600 hover:text-primary">Events</Link></li>
-              <li><Link to="/sermons" className="text-gray-600 hover:text-primary">Sermons</Link></li>
+              <li><Link to="/" className="text-gray-700 hover:text-primary">Home</Link></li>
+              <li><Link to="/about" className="text-gray-700 hover:text-primary">About Us</Link></li>
+              <li><Link to="/services" className="text-gray-700 hover:text-primary">Services</Link></li>
+              <li><Link to="/events" className="text-gray-700 hover:text-primary">Events</Link></li>
+              <li><Link to="/sermons" className="text-gray-700 hover:text-primary">Sermons</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-800">Connect With Us</h3>
             <ul className="space-y-2">
-              <li><Link to="/ministries" className="text-gray-600 hover:text-primary">Ministries</Link></li>
-              <li><Link to="/contact" className="text-gray-600 hover:text-primary">Contact</Link></li>
-              <li><a href="#" className="text-gray-600 hover:text-primary">Prayer Requests</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-primary">Volunteer</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-primary">Give Online</a></li>
+              <li><Link to="/ministries" className="text-gray-700 hover:text-primary">Ministries</Link></li>
+              <li><Link to="/contact" className="text-gray-700 hover:text-primary">Contact</Link></li>
+              <li><a href="#" className="text-gray-700 hover:text-primary">Prayer Requests</a></li>
+              <li><a href="#" className="text-gray-700 hover:text-primary">Volunteer</a></li>
+              <li><a href="#" className="text-gray-700 hover:text-primary">Give Online</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-800">Contact Info</h3>
-            <address className="text-gray-600 not-italic">
+            <address className="text-gray-700 not-italic">
               <p>YMCA Narayanaguda</p>
               <p>Hyderabad, 1:23</p>
               <p className="mt-3">(555) 123-4567</p>
@@ -75,8 +75,8 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-200 pt-8 text-center">
-          <p className="text-gray-600">© {new Date().getFullYear()} Church of Christ. All rights reserved.</p>
-          <p className="text-gray-500 text-sm mt-2">We Preach Christ Crucified - I Corinthians 1:23</p>
+          <p className="text-gray-700">© {new Date().getFullYear()} Church of Christ. All rights reserved.</p>
+          <p className="text-gray-600 text-sm mt-2">We Preach Christ Crucified - I Corinthians 1:23</p>
         </div>
       </div>
     </footer>

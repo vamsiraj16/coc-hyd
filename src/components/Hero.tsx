@@ -7,8 +7,8 @@ import ParticleBackground from './ParticleBackground';
 const Hero = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient that matches the logo colors */}
-      <div className="absolute inset-0 bg-gradient-to-b from-red-50 to-red-100"></div>
+      {/* Background gradient using the logo colors */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-gray-100"></div>
       
       {/* Particle effect overlay */}
       <ParticleBackground className="absolute inset-0 z-0" />
@@ -20,7 +20,7 @@ const Hero = () => {
           <img 
             src="/lovable-uploads/3618bc0d-192c-4a06-9493-a5ced09a3873.png" 
             alt="Church of Christ Logo" 
-            className="w-32 h-32 sm:w-40 sm:h-40 float-animation glow-animation rounded-full"
+            className="w-32 h-32 sm:w-40 sm:h-40 float-animation glow-animation rounded-full shadow-lg"
           />
         </div>
         

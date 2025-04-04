@@ -32,13 +32,13 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ className }) =>
         fpsLimit: 60,
         particles: {
           color: {
-            value: "#ffffff",
+            value: "#e1232b",
           },
           links: {
-            color: "#ffffff",
+            color: "#e1232b",
             distance: 150,
             enable: true,
-            opacity: 0.3,
+            opacity: 0.2,
             width: 1,
           },
           move: {
@@ -59,7 +59,7 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ className }) =>
             value: 50,
           },
           opacity: {
-            value: 0.3,
+            value: 0.2,
           },
           shape: {
             type: "circle",
