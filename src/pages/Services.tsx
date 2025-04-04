@@ -19,7 +19,7 @@ const Services = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="h-48 bg-blue-100"></div>
             <CardContent className="p-6">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">Sunday Morning Worship</h2>
@@ -62,7 +62,7 @@ const Services = () => {
             </CardContent>
           </Card>
           
-          <Card className="overflow-hidden">
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             <div className="h-48 bg-green-100"></div>
             <CardContent className="p-6">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">Wednesday Bible Study</h2>
