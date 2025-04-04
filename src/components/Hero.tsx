@@ -27,8 +27,6 @@ const Hero = () => {
           </Button>
         </div>
       </div>
-      
-      {/* Optional subtle cross symbol or church icon could be added here */}
     </div>
   );
 };
