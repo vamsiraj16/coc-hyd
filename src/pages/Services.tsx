@@ -3,7 +3,9 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
-import { Clock, MapPin, Music, Book, Heart } from 'lucide-react';
+import { Clock, MapPin, Music, Book, Heart, Users, Calendar } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   return (
@@ -12,17 +14,19 @@ const Services = () => {
       
       <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Worship Services</h1>
+          <h1 className="text-4xl font-bold text-blue-700 mb-4">Worship Services</h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Join us for worship, prayer, and fellowship. Everyone is welcome at our services.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="h-48 bg-blue-100"></div>
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-blue-200">
+            <div className="h-48 bg-blue-100 flex items-center justify-center">
+              <Users className="h-16 w-16 text-blue-600" />
+            </div>
             <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Sunday Morning Worship</h2>
+              <h2 className="text-2xl font-semibold text-blue-700 mb-4">Sunday Morning Worship</h2>
               
               <div className="flex items-start gap-3 mb-3">
                 <Clock className="h-5 w-5 text-blue-600 mt-0.5" />
@@ -59,13 +63,19 @@ const Services = () => {
                   <span>Communion</span>
                 </div>
               </div>
+              
+              <div className="mt-4 text-center">
+                <Button className="bg-blue-600 hover:bg-blue-700">Plan Your Visit</Button>
+              </div>
             </CardContent>
           </Card>
           
-          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="h-48 bg-green-100"></div>
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-green-200">
+            <div className="h-48 bg-green-100 flex items-center justify-center">
+              <Book className="h-16 w-16 text-green-600" />
+            </div>
             <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Wednesday Bible Study</h2>
+              <h2 className="text-2xl font-semibold text-green-700 mb-4">Wednesday Bible Study</h2>
               
               <div className="flex items-start gap-3 mb-3">
                 <Clock className="h-5 w-5 text-blue-600 mt-0.5" />
@@ -102,6 +112,10 @@ const Services = () => {
                   <span>Fellowship</span>
                 </div>
               </div>
+              
+              <div className="mt-4 text-center">
+                <Button className="bg-green-600 hover:bg-green-700">Join Us</Button>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -109,30 +123,47 @@ const Services = () => {
         <div className="mb-16">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Special Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card>
+            <Card className="border-blue-100 hover:shadow-md transition-shadow duration-300">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-medium text-gray-800 mb-2">Easter Service</h3>
+                <div className="flex items-center justify-center mb-4">
+                  <Calendar className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Easter Service</h3>
                 <p className="text-gray-600 mb-2">A celebration of Christ's resurrection with special music and worship.</p>
                 <p className="text-sm text-gray-500">Next service: April 17, 2025</p>
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="border-blue-100 hover:shadow-md transition-shadow duration-300">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-medium text-gray-800 mb-2">Christmas Eve</h3>
+                <div className="flex items-center justify-center mb-4">
+                  <Calendar className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Christmas Eve</h3>
                 <p className="text-gray-600 mb-2">Candlelight service celebrating the birth of Jesus Christ.</p>
                 <p className="text-sm text-gray-500">Next service: December 24, 2024</p>
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="border-blue-100 hover:shadow-md transition-shadow duration-300">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-medium text-gray-800 mb-2">Baptism Sunday</h3>
+                <div className="flex items-center justify-center mb-4">
+                  <Calendar className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Baptism Sunday</h3>
                 <p className="text-gray-600 mb-2">Special service for baptisms held the last Sunday of each month.</p>
                 <p className="text-sm text-gray-500">Check calendar for dates</p>
               </CardContent>
             </Card>
           </div>
+        </div>
+        
+        <div className="text-center">
+          <Link to="/contact">
+            <Button className="bg-blue-600 hover:bg-blue-700">
+              Contact Us For More Information
+            </Button>
+          </Link>
         </div>
       </div>
       
