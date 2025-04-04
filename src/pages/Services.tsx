@@ -1,8 +1,9 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
-import { Clock, MapPin, Music, Book, PrayingHands } from 'lucide-react';
+import { Clock, MapPin, Music, Book, Heart } from 'lucide-react';
 
 const Services = () => {
   return (
@@ -54,7 +55,7 @@ const Services = () => {
                   <span>Teaching</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <PrayingHands className="h-5 w-5 text-blue-600 mb-1" />
+                  <Heart className="h-5 w-5 text-blue-600 mb-1" />
                   <span>Communion</span>
                 </div>
               </div>
@@ -93,7 +94,7 @@ const Services = () => {
                   <span>Bible Study</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <PrayingHands className="h-5 w-5 text-blue-600 mb-1" />
+                  <Heart className="h-5 w-5 text-blue-600 mb-1" />
                   <span>Prayer</span>
                 </div>
                 <div className="flex flex-col items-center">
