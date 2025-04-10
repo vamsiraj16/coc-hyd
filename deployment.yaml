@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coc-hyd
+  labels:
+    app: coc-hyd
+    environment: ${ENVIRONMENT}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coc-hyd
+  template:
+    metadata:
+      labels:
+        app: coc-hyd
+        environment: ${ENVIRONMENT}
+    spec:
+      containers:
+      - name: coc-hyd
+        image: ${IMAGE}
+        ports:
+        - containerPort: 80
+        env:
+        - name: VITE_YOUTUBE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: youtube-secrets
+              key: api-key
+        - name: VITE_YOUTUBE_CHANNEL_ID
+          valueFrom:
+            secretKeyRef:
+              name: youtube-secrets
+              key: channel-id
+        - name: VITE_YOUTUBE_PLAYLIST_ID
+          valueFrom:
+            secretKeyRef:
+              name: youtube-secrets
+              key: playlist-id
+        - name: NODE_ENV
+          value: ${ENVIRONMENT}
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coc-hyd
+spec:
+  selector:
+    app: coc-hyd
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP 

@@ -1,0 +1,36 @@
+imports:
+- path: deployment.yaml
+
+resources:
+- name: coc-hyderabad-project
+  type: gcp-types/cloudresourcemanager-v1:projects
+  properties:
+    projectId: coc-hyderabad
+    name: Church of Christ
+    parent:
+      type: organizations
+      id: YOUR_ORGANIZATION_ID  # Replace with your actual organization ID
+
+- name: youtube-api-key
+  type: gcp-types/secretmanager-v1:projects.secrets
+  properties:
+    parent: projects/$(ref.coc-hyderabad-project.projectNumber)
+    secretId: youtube-api-key
+    replication:
+      automatic: {}
+
+- name: youtube-channel-id
+  type: gcp-types/secretmanager-v1:projects.secrets
+  properties:
+    parent: projects/$(ref.coc-hyderabad-project.projectNumber)
+    secretId: youtube-channel-id
+    replication:
+      automatic: {}
+
+- name: youtube-playlist-id
+  type: gcp-types/secretmanager-v1:projects.secrets
+  properties:
+    parent: projects/$(ref.coc-hyderabad-project.projectNumber)
+    secretId: youtube-playlist-id
+    replication:
+      automatic: {} 
