@@ -1,73 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Play, Download, Calendar, Clock, User } from 'lucide-react';
+import { Play, Download, Calendar, Clock, User, Youtube } from 'lucide-react';
+import { fetchYouTubeVideos, getVideoUrl, getEmbedUrl } from '@/lib/youtube';
+
+interface YouTubeVideo {
+  id: string;
+  title: string;
+  description: string;
+  publishedAt: string;
+  thumbnailUrl: string;
+  channelTitle: string;
+  duration: string;
+  isEmbeddable: boolean;
+}
 
 const Sermons = () => {
-  const sermonSeries = [
-    {
-      id: 1,
-      title: "Walking in Faith",
-      description: "A study of Hebrews 11 examining the heroes of faith and what we can learn from their examples.",
-      imageClass: "bg-blue-100",
-      count: 6
-    },
-    {
-      id: 2,
-      title: "Life of Jesus",
-      description: "Following the journey of Jesus through the gospel of Luke, exploring His teachings and ministry.",
-      imageClass: "bg-green-100",
-      count: 8
-    },
-    {
-      id: 3,
-      title: "Navigating Relationships",
-      description: "Biblical principles for healthy relationships in family, friendship, and community.",
-      imageClass: "bg-yellow-100",
-      count: 5
-    }
-  ];
+  const [sermons, setSermons] = useState<YouTubeVideo[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const recentSermons = [
-    {
-      id: 1,
-      title: "The Power of Faith",
-      series: "Walking in Faith",
-      speaker: "Pastor John Smith",
-      date: "April 2, 2025",
-      duration: "42 min",
-      description: "Exploring Hebrews 11:1-6 and how faith impacts our daily walk with God."
-    },
-    {
-      id: 2,
-      title: "Grace for Every Day",
-      series: "Foundations of Faith",
-      speaker: "Pastor John Smith",
-      date: "March 26, 2025",
-      duration: "38 min",
-      description: "Understanding God's grace and how it transforms our lives and relationships."
-    },
-    {
-      id: 3,
-      title: "Finding Peace in Chaos",
-      series: "Navigating Relationships",
-      speaker: "Pastor Mark Johnson",
-      date: "March 19, 2025",
-      duration: "45 min",
-      description: "Biblical strategies for maintaining peace during life's most challenging moments."
-    },
-    {
-      id: 4,
-      title: "The Good Shepherd",
-      series: "Life of Jesus",
-      speaker: "Pastor John Smith",
-      date: "March 12, 2025",
-      duration: "40 min",
-      description: "Examining Jesus' teaching about Himself as the Good Shepherd in John 10."
+  useEffect(() => {
+    async function loadSermons() {
+      try {
+        const videos = await fetchYouTubeVideos();
+        setSermons(videos);
+      } catch (err) {
+        setError('Failed to load sermons. Please try again later.');
+        console.error('Error loading sermons:', err);
+      } finally {
+        setLoading(false);
+      }
     }
-  ];
+
+    loadSermons();
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -77,82 +46,108 @@ const Sermons = () => {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">Sermons & Messages</h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Listen to our recent sermons and messages to be encouraged, equipped, and inspired in your faith journey.
+            Watch and listen to our latest messages, and grow in your faith through Biblical teaching and inspiration.
           </p>
         </div>
-        
-        {/* Sermon Series */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">Current & Recent Series</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {sermonSeries.map((series) => (
-              <Card key={series.id} className="overflow-hidden">
-                <div className={`h-48 ${series.imageClass}`}></div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{series.title}</h3>
-                  <p className="text-gray-600 mb-4">{series.description}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-500">{series.count} sermons</span>
-                    <Button variant="outline" size="sm">View Series</Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+            <p className="mt-4 text-gray-600">Loading sermons...</p>
           </div>
-        </div>
-        
-        {/* Recent Sermons */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">Recent Sermons</h2>
-          <div className="space-y-6">
-            {recentSermons.map((sermon) => (
-              <Card key={sermon.id}>
-                <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row md:items-center gap-6">
-                    <div className="md:w-3/4">
-                      <div className="mb-2">
-                        <span className="text-sm text-blue-600 font-medium">{sermon.series}</span>
+        ) : error ? (
+          <div className="text-center py-12">
+            <p className="text-red-600">{error}</p>
+          </div>
+        ) : (
+          <div className="space-y-8">
+            {sermons.map((sermon) => (
+              <Card key={sermon.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div className="relative aspect-video">
+                    <Card className="overflow-hidden">
+                      <div className="aspect-video w-full">
+                        {sermon.isEmbeddable ? (
+                          <iframe
+                            src={getEmbedUrl(sermon.id)}
+                            title={sermon.title}
+                            className="h-full w-full"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="relative h-full w-full bg-gray-100">
+                            <img
+                              src={sermon.thumbnailUrl || `https://img.youtube.com/vi/${sermon.id}/hqdefault.jpg`}
+                              alt={sermon.title}
+                              className="h-full w-full object-cover"
+                              onError={(e) => {
+                                // Fallback to a default thumbnail if the image fails to load
+                                const target = e.target as HTMLImageElement;
+                                target.src = `https://img.youtube.com/vi/${sermon.id}/hqdefault.jpg`;
+                                target.onerror = () => {
+                                  // If the fallback also fails, show a placeholder
+                                  target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MCIgaGVpZ2h0PSI3MjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyODAiIGhlaWdodD0iNzIwIiBmaWxsPSIjZjFmMWYxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGR5PSIuM2VtIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2Fubm90IGxvYWQgdmlkZW8gdGh1bWJuYWlsPC90ZXh0Pjwvc3ZnPg==';
+                                };
+                              }}
+                            />
+                            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 p-4 text-center text-white">
+                              <p className="mb-4">This video can only be watched on YouTube</p>
+                              <a
+                                href={getVideoUrl(sermon.id)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
+                              >
+                                <Youtube className="h-4 w-4" />
+                                Watch on YouTube
+                              </a>
+                            </div>
+                          </div>
+                        )}
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">{sermon.title}</h3>
-                      <div className="flex flex-wrap gap-x-4 gap-y-2 text-gray-600 text-sm mb-3">
-                        <div className="flex items-center gap-1">
-                          <User className="h-4 w-4" />
-                          <span>{sermon.speaker}</span>
+                    </Card>
+                  </div>
+                  
+                  <CardContent className="p-6 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-800 mb-4">{sermon.title}</h3>
+                      <div className="space-y-3 mb-4">
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Calendar className="h-5 w-5 text-primary" />
+                          <span>{sermon.publishedAt}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          <span>{sermon.date}</span>
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <User className="h-5 w-5 text-primary" />
+                          <span>{sermon.channelTitle}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-4 w-4" />
+                        <div className="flex items-center gap-2 text-gray-600">
+                          <Clock className="h-5 w-5 text-primary" />
                           <span>{sermon.duration}</span>
                         </div>
                       </div>
-                      <p className="text-gray-600">{sermon.description}</p>
+                      <p className="text-gray-600 mb-6">{sermon.description}</p>
                     </div>
-                    <div className="md:w-1/4 flex md:flex-col gap-3">
-                      <Button className="flex items-center gap-2 w-full">
-                        <Play className="h-4 w-4" />
-                        <span>Listen</span>
-                      </Button>
-                      <Button variant="outline" className="flex items-center gap-2 w-full">
-                        <Download className="h-4 w-4" />
-                        <span>Download</span>
-                      </Button>
+                    
+                    <div className="flex gap-4">
+                      <a 
+                        href={getVideoUrl(sermon.id)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 sm:flex-none"
+                      >
+                        <Button className="w-full sm:w-auto bg-primary hover:bg-primary/90">
+                          Watch on YouTube
+                        </Button>
+                      </a>
                     </div>
-                  </div>
-                </CardContent>
+                  </CardContent>
+                </div>
               </Card>
             ))}
           </div>
-        </div>
-        
-        {/* Sermon Archive */}
-        <div className="text-center">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Looking for older messages?</h2>
-          <p className="text-gray-600 mb-6">Browse our complete sermon archive by date, speaker, or topic.</p>
-          <Button>View Sermon Archive</Button>
-        </div>
+        )}
       </div>
       
       <Footer />

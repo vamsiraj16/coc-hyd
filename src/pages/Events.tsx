@@ -1,68 +1,11 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, Clock, MapPin, Users } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, Music, Book, Heart } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Events = () => {
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: "Community Food Drive",
-      date: "April 15, 2025",
-      time: "9:00 AM - 2:00 PM",
-      location: "Church Parking Lot",
-      description: "Join us as we collect non-perishable food items to support local families in need. Volunteers needed to help sort and distribute donations.",
-      category: "Service"
-    },
-    {
-      id: 2,
-      title: "Youth Summer Camp",
-      date: "July 10-15, 2025",
-      time: "All Day",
-      location: "Pine Lake Retreat Center",
-      description: "A week of fun, fellowship, and spiritual growth for students grades 6-12. Activities include swimming, hiking, campfires, worship, and Bible study.",
-      category: "Youth"
-    },
-    {
-      id: 3,
-      title: "Marriage Enrichment Workshop",
-      date: "May 20, 2025",
-      time: "6:30 PM - 8:30 PM",
-      location: "Fellowship Hall",
-      description: "A special workshop for couples looking to strengthen their relationship through biblical principles. Childcare will be provided.",
-      category: "Family"
-    },
-    {
-      id: 4,
-      title: "Women's Bible Study Kickoff",
-      date: "June 5, 2025",
-      time: "7:00 PM",
-      location: "Room 201",
-      description: "The beginning of our 8-week summer Bible study series for women. This year's theme is 'Walking in Faith' and will focus on the book of Hebrews.",
-      category: "Bible Study"
-    },
-    {
-      id: 5,
-      title: "Men's Breakfast",
-      date: "April 28, 2025",
-      time: "8:00 AM",
-      location: "Fellowship Hall",
-      description: "Monthly gathering for men to enjoy good food, fellowship, and a brief devotional. Open to all men in the community.",
-      category: "Fellowship"
-    },
-    {
-      id: 6,
-      title: "Vacation Bible School",
-      date: "June 22-26, 2025",
-      time: "9:00 AM - 12:00 PM",
-      location: "Church Campus",
-      description: "A fun-filled week for children ages 4-12 with games, crafts, music, and Bible stories. This year's theme: 'Ocean Adventure: Diving Deep into God's Word'",
-      category: "Children"
-    }
-  ];
-
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -71,84 +14,154 @@ const Events = () => {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">Upcoming Events</h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Join us for these upcoming activities, gatherings, and opportunities to connect with our church family.
+            Join us for these upcoming events and be part of our growing community.
           </p>
         </div>
         
-        {/* Featured Event */}
-        <div className="mb-16">
-          <div className="relative rounded-lg overflow-hidden">
-            <div className="absolute inset-0 bg-blue-600 bg-opacity-75"></div>
-            <div className="relative z-10 p-8 md:p-12 text-white">
-              <span className="inline-block px-3 py-1 bg-white text-blue-600 rounded-full text-sm font-medium mb-4">Featured Event</span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Annual Church Picnic</h2>
-              <div className="flex flex-col sm:flex-row gap-6 mb-6">
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-5 w-5" />
-                  <span>May 30, 2025</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5" />
-                  <span>11:00 AM - 3:00 PM</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5" />
-                  <span>Riverside Park</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-primary/20">
+            <div className="h-48 bg-primary/10 flex items-center justify-center">
+              <Calendar className="h-16 w-16 text-primary" />
+            </div>
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Community Outreach</h2>
+              
+              <div className="flex items-start gap-3 mb-3">
+                <Clock className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">Saturday, 10:00 AM - 2:00 PM</p>
+                  <p className="text-gray-600 text-sm">Monthly Event</p>
                 </div>
               </div>
-              <p className="text-lg mb-6 max-w-3xl">
-                Join us for our annual church picnic! Bring your family and friends for a day of fun, 
-                food, and fellowship. We'll have games for all ages, plenty of food, and a special 
-                outdoor worship service.
+              
+              <div className="flex items-start gap-3 mb-4">
+                <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">Community Center</p>
+                  <p className="text-gray-600 text-sm">123 Faith Street</p>
+                </div>
+              </div>
+              
+              <p className="text-gray-600 mb-4">
+                Join us as we serve our local community through various outreach programs. 
+                Food distribution, clothing drive, and family activities.
               </p>
-              <Button className="bg-white text-blue-600 hover:bg-blue-50">Learn More</Button>
+              
+              <div className="grid grid-cols-3 gap-2 text-center text-sm">
+                <div className="flex flex-col items-center">
+                  <Users className="h-5 w-5 text-primary mb-1" />
+                  <span>Volunteer</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Heart className="h-5 w-5 text-primary mb-1" />
+                  <span>Donate</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Music className="h-5 w-5 text-primary mb-1" />
+                  <span>Activities</span>
+                </div>
+              </div>
+              
+              <div className="mt-4 text-center">
+                <Button className="bg-primary hover:bg-primary/90">Register Now</Button>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-primary/20">
+            <div className="h-48 bg-primary/10 flex items-center justify-center">
+              <Book className="h-16 w-16 text-primary" />
             </div>
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Youth Bible Study</h2>
+              
+              <div className="flex items-start gap-3 mb-3">
+                <Clock className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">Friday, 6:00 PM - 8:00 PM</p>
+                  <p className="text-gray-600 text-sm">Weekly Event</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3 mb-4">
+                <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">Youth Center</p>
+                  <p className="text-gray-600 text-sm">123 Faith Street</p>
+                </div>
+              </div>
+              
+              <p className="text-gray-600 mb-4">
+                A fun and engaging Bible study for youth ages 13-18. Games, discussions, 
+                and activities designed to help young people grow in their faith.
+              </p>
+              
+              <div className="grid grid-cols-3 gap-2 text-center text-sm">
+                <div className="flex flex-col items-center">
+                  <Book className="h-5 w-5 text-primary mb-1" />
+                  <span>Study</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Users className="h-5 w-5 text-primary mb-1" />
+                  <span>Fellowship</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Music className="h-5 w-5 text-primary mb-1" />
+                  <span>Worship</span>
+                </div>
+              </div>
+              
+              <div className="mt-4 text-center">
+                <Button className="bg-primary hover:bg-primary/90">Join Us</Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        
+        <div className="mb-16">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Special Events</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
+              <CardContent className="pt-6">
+                <div className="flex items-center justify-center mb-4">
+                  <Calendar className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Christmas Concert</h3>
+                <p className="text-gray-600 mb-2">Annual Christmas concert featuring our choir and special guests.</p>
+                <p className="text-sm text-gray-500">December 15, 2024</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
+              <CardContent className="pt-6">
+                <div className="flex items-center justify-center mb-4">
+                  <Calendar className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Easter Celebration</h3>
+                <p className="text-gray-600 mb-2">Special service and activities celebrating Christ's resurrection.</p>
+                <p className="text-sm text-gray-500">April 17, 2025</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
+              <CardContent className="pt-6">
+                <div className="flex items-center justify-center mb-4">
+                  <Calendar className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Summer Camp</h3>
+                <p className="text-gray-600 mb-2">Annual youth summer camp with activities, worship, and fellowship.</p>
+                <p className="text-sm text-gray-500">July 10-15, 2025</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
         
-        {/* Event Categories */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <Button variant="outline" className="rounded-full">All Events</Button>
-          <Button variant="outline" className="rounded-full">Worship</Button>
-          <Button variant="outline" className="rounded-full">Fellowship</Button>
-          <Button variant="outline" className="rounded-full">Service</Button>
-          <Button variant="outline" className="rounded-full">Bible Study</Button>
-          <Button variant="outline" className="rounded-full">Youth</Button>
-          <Button variant="outline" className="rounded-full">Children</Button>
-        </div>
-        
-        {/* Event List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {upcomingEvents.map((event) => (
-            <Card key={event.id}>
-              <CardContent className="p-6">
-                <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-medium mb-4">
-                  {event.category}
-                </span>
-                <h3 className="text-xl font-semibold mb-3">{event.title}</h3>
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Calendar className="h-4 w-4" />
-                    <span className="text-sm">{event.date}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <Clock className="h-4 w-4" />
-                    <span className="text-sm">{event.time}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-600">
-                    <MapPin className="h-4 w-4" />
-                    <span className="text-sm">{event.location}</span>
-                  </div>
-                </div>
-                <p className="text-gray-600 text-sm mb-4">{event.description}</p>
-                <Button variant="outline" size="sm" className="w-full">View Details</Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        
         <div className="text-center">
-          <Button>View All Events</Button>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Stay Updated</h2>
+          <p className="text-gray-600 mb-6 max-w-3xl mx-auto">
+            Subscribe to our newsletter to receive updates about upcoming events and activities.
+          </p>
+          <Button className="bg-primary hover:bg-primary/90">Subscribe Now</Button>
         </div>
       </div>
       

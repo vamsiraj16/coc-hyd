@@ -75,9 +75,16 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-800">Address</h3>
-                    <p className="text-gray-600">123 Faith Street</p>
-                    <p className="text-gray-600">Anytown, ST 12345</p>
-                    <a href="#" className="text-blue-600 text-sm hover:underline">Get Directions</a>
+                    <p className="text-gray-600">YMCA Narayanaguda</p>
+                    <p className="text-gray-600">Hyderabad, Telangana 500029</p>
+                    <a 
+                      href="https://maps.app.goo.gl/YyAQdzmGXRmgymg66" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-blue-600 text-sm hover:underline"
+                    >
+                      Get Directions
+                    </a>
                   </div>
                 </div>
                 
@@ -87,7 +94,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-800">Phone</h3>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                    <p className="text-gray-600">+91 98480 12345</p>
                     <p className="text-gray-600 text-sm">Monday-Friday, 9:00 AM - 5:00 PM</p>
                   </div>
                 </div>

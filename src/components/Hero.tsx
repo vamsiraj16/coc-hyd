@@ -58,14 +58,14 @@ const Hero = () => {
               <p className="font-semibold text-gray-800">Sunday Service</p>
               <p className="text-gray-600">10:30 AM</p>
             </div>
-            <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-lg px-6 py-4 shadow-md border-l-4 border-primary">
+            {/* <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-lg px-6 py-4 shadow-md border-l-4 border-primary">
               <p className="font-semibold text-gray-800">Sunday School</p>
               <p className="text-gray-600">9:15 AM</p>
             </div>
             <div className="bg-white bg-opacity-80 backdrop-blur-sm rounded-lg px-6 py-4 shadow-md border-l-4 border-primary">
               <p className="font-semibold text-gray-800">Wednesday Bible Study</p>
               <p className="text-gray-600">7:00 PM</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

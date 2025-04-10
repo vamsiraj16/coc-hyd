@@ -1,4 +1,3 @@
-
 import React, { useCallback } from 'react';
 import Particles from "react-tsparticles";
 import type { Container, Engine } from "tsparticles-engine";
@@ -35,38 +34,64 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ className }) =>
             value: "#e1232b",
           },
           links: {
-            color: "#e1232b",
-            distance: 150,
-            enable: true,
-            opacity: 0.2,
-            width: 1,
+            enable: false,
           },
           move: {
-            direction: "none",
+            direction: "bottom",
             enable: true,
             outModes: {
-              default: "bounce",
+              default: "out",
             },
             random: false,
-            speed: 1,
-            straight: false,
+            speed: 4,
+            straight: true,
+            path: {
+              enable: false,
+            }
           },
           number: {
             density: {
               enable: true,
               area: 800,
             },
-            value: 50,
+            value: 150,
+            limit: 0
           },
           opacity: {
-            value: 0.2,
+            value: 0.3,
+            animation: {
+              enable: true,
+              speed: 0.5,
+              minimumValue: 0.1,
+              sync: false
+            }
           },
           shape: {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 1, max: 2 },
+            animation: {
+              enable: true,
+              speed: 2,
+              minimumValue: 0.1,
+              sync: false
+            }
           },
+          life: {
+            duration: {
+              sync: true,
+              value: 3
+            },
+            count: 0
+          },
+          spawn: {
+            enable: true,
+            rate: {
+              quantity: 10,
+              delay: 0.1
+            }
+          }
         },
         detectRetina: true,
       }}

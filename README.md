@@ -71,3 +71,55 @@ Yes it is!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+# Church of Christ Website
+
+## Environment Setup
+
+1. Copy the environment template file:
+```bash
+cp .env.example .env
+```
+
+2. Update the `.env` file with your actual values:
+```env
+VITE_YOUTUBE_API_KEY=your_youtube_api_key_here
+VITE_YOUTUBE_CHANNEL_ID=your_channel_id_here
+```
+
+### Getting YouTube API Credentials
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable the YouTube Data API v3
+4. Create credentials (API key)
+5. Copy your API key to the `.env` file
+
+### Security Notes
+
+- Never commit the `.env` file to version control
+- Keep your API keys secure and rotate them regularly
+- Use environment-specific API keys for development and production
+- Consider implementing API key restrictions in Google Cloud Console
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Features
+
+- Responsive design
+- YouTube sermon integration
+- Event management
+- Contact form
+- Ministry information
+- Service schedules
