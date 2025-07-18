@@ -181,7 +181,7 @@ const Index = () => {
               <img 
                 src="/lovable-uploads/church.png" 
                 alt="Church community group photo" 
-                className="w-full h-96 object-cover rounded-lg"
+                className="w-full h-96 object-cover rounded-lg filter contrast-125 brightness-105"
               />
             </div>
           </div>

@@ -142,10 +142,7 @@ const Contact = () => {
         <div className="mb-16">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Find Us</h2>
           <div className="h-96 bg-gray-200 rounded-lg">
-            {/* This would be replaced with an actual map component */}
-            <div className="h-full flex items-center justify-center">
-              <p className="text-gray-500">Map would be displayed here</p>
-            </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.330269774421!2d78.48851777464904!3d17.395930883492763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99da7fbc0a5f%3A0xb1678f529593914c!2sCHURCH%20OF%20CHRIST%20NARAYANAGUDA!5e0!3m2!1sen!2sin!4v1752303470782!5m2!1sen!2sin" className="w-full h-full rounded-lg" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
