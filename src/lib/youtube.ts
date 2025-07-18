@@ -60,7 +60,10 @@ function getEnvVar(key: string): string {
 // Create a secure API endpoint URL with parameters
 function createSecureApiUrl(endpoint: string, params: Record<string, string>): string {
   // Use a proxy endpoint to hide API key
-  const baseUrl = '/youtube';
+  // Use Vite's MODE to decide whether we are running locally or on the deployed (static) site
+  const baseUrl = import.meta.env.MODE === 'development'
+    ? '/youtube'                       // Local dev – forwarded by Vite proxy (vite.config.ts)
+    : 'https://www.googleapis.com/youtube/v3'; // Production – call Google APIs directly
   const queryParams = new URLSearchParams(params);
   return `${baseUrl}/${endpoint}?${queryParams.toString()}`;
 }

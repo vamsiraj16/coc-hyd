@@ -26,7 +26,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/3618bc0d-192c-4a06-9493-a5ced09a3873.png" 
+                src="/coc-hyd/lovable-uploads/3618bc0d-192c-4a06-9493-a5ced09a3873.png" 
                 alt="Church of Christ Logo" 
                 className="h-10 w-10 mr-2"
               />
@@ -58,7 +58,7 @@ const Navbar = () => {
               <SheetContent side="right" className="w-[250px] sm:w-[300px]">
                 <div className="flex items-center mb-6 mt-4">
                   <img 
-                    src="/lovable-uploads/3618bc0d-192c-4a06-9493-a5ced09a3873.png" 
+                    src="/coc-hyd/lovable-uploads/3618bc0d-192c-4a06-9493-a5ced09a3873.png" 
                     alt="Church of Christ Logo" 
                     className="h-10 w-10 mr-2"
                   />
