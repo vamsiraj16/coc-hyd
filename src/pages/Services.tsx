@@ -119,7 +119,7 @@ const Services = () => {
           </Card>
         </div>
         
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Special Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
@@ -155,7 +155,7 @@ const Services = () => {
               </CardContent>
             </Card>
           </div>
-        </div>
+        </div> */}
         
         <div className="text-center">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">What to Expect</h2>
