@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
+import ScrollToTop from '@/components/ScrollToTop';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
@@ -63,18 +64,18 @@ const Index = () => {
       <Hero />
       
       {/* Welcome Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 sm:py-16 px-5 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Welcome to Our Church</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">Welcome to Our Church</h2>
+            <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto">
               We are a community of believers dedicated to following Jesus Christ and sharing His love with the world.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
             <Card className="hover:shadow-lg transition-shadow duration-300 border-primary/20">
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-5 sm:p-6 text-center">
                 <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -137,12 +138,12 @@ const Index = () => {
       </section>
       
       {/* Service Times */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+      <section className="py-12 sm:py-16 px-5 sm:px-6 lg:px-8 bg-primary/5">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Join Us for Worship</h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 sm:mb-6">Join Us for Worship</h2>
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
                 We gather each week to worship God, study His Word, and encourage one another in faith.
                 All are welcome to join us!
               </p>
@@ -181,7 +182,7 @@ const Index = () => {
               <img 
                 src="/lovable-uploads/church.png" 
                 alt="Church community group photo" 
-                className="w-full h-96 object-cover rounded-lg filter contrast-125 brightness-105"
+                className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg filter contrast-125 brightness-105"
               />
             </div>
           </div>
@@ -189,12 +190,12 @@ const Index = () => {
       </section>
       
       {/* Latest Sermon */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 sm:py-16 px-5 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 sm:mb-12">
             <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-2">Latest Sermon</h2>
-              <p className="text-lg text-gray-600">Watch and listen to our most recent message</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Latest Sermon</h2>
+              <p className="text-base sm:text-lg text-gray-600">Watch and listen to our most recent message</p>
             </div>
             <Link to="/sermons" className="mt-4 md:mt-0">
               <Button variant="outline" className="flex items-center border-primary text-primary hover:bg-primary/10">
@@ -317,12 +318,12 @@ const Index = () => {
       </section>
       
       {/* Upcoming Events */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 sm:py-16 px-5 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 sm:mb-12">
             <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-2">Upcoming Events</h2>
-              <p className="text-lg text-gray-600">Join us for these upcoming activities and services.</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-1 sm:mb-2">Upcoming Events</h2>
+              <p className="text-base sm:text-lg text-gray-600">Join us for these upcoming activities and services.</p>
             </div>
             <Link to="/events" className="mt-4 md:mt-0">
               <Button variant="outline" className="flex items-center border-primary text-primary hover:bg-primary/10">
@@ -332,10 +333,10 @@ const Index = () => {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {upcomingEvents.map((event) => (
               <Card key={event.id} className="hover:shadow-md transition-shadow duration-300 border-primary/20">
-                <CardContent className="p-6">
+                <CardContent className="p-5 sm:p-6">
                   <h3 className="text-xl font-semibold mb-4">{event.title}</h3>
                   <div className="space-y-3 mb-4">
                     <div className="flex items-center gap-2 text-gray-600">
@@ -363,23 +364,23 @@ const Index = () => {
       </section>
       
       {/* Stay Connected */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary to-primary/90 relative overflow-hidden">
+      <section className="py-12 sm:py-16 px-5 sm:px-6 lg:px-8 bg-gradient-to-br from-primary to-primary/90 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)] pointer-events-none" />
         <div className="max-w-7xl mx-auto text-center relative">
-          <h2 className="text-3xl font-bold text-white mb-4">Stay Connected</h2>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Stay Connected</h2>
+          <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8">
             Subscribe to our newsletter and follow us on social media to stay updated with our latest news, events, and messages.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-12">
             <div className="flex-1 max-w-md w-full">
               <div className="flex flex-col sm:flex-row gap-3">
                 <Input 
                   type="email" 
                   placeholder="Enter your email" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 h-12"
                 />
-                <Button className="bg-white text-primary hover:bg-white/90 font-semibold">
+                <Button className="bg-white text-primary hover:bg-white/90 font-semibold h-12 px-6 shrink-0">
                   Subscribe
                 </Button>
               </div>
@@ -387,30 +388,33 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col items-center">
-            <div className="flex justify-center space-x-8 mb-6">
+            <div className="flex justify-center space-x-6 sm:space-x-8 mb-4 sm:mb-6">
               <a 
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="bg-white/10 p-3 rounded-full text-white hover:bg-white/20 transition-colors"
+                className="bg-white/10 p-3.5 rounded-full text-white hover:bg-white/20 transition-colors"
+                aria-label="Facebook"
               >
-                <Facebook className="h-6 w-6" />
+                <Facebook className="h-5 w-5 sm:h-6 sm:w-6" />
               </a>
               <a 
                 href="https://youtube.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="bg-white/10 p-3 rounded-full text-white hover:bg-white/20 transition-colors"
+                className="bg-white/10 p-3.5 rounded-full text-white hover:bg-white/20 transition-colors"
+                aria-label="YouTube"
               >
-                <Youtube className="h-6 w-6" />
+                <Youtube className="h-5 w-5 sm:h-6 sm:w-6" />
               </a>
               <a 
                 href="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="bg-white/10 p-3 rounded-full text-white hover:bg-white/20 transition-colors"
+                className="bg-white/10 p-3.5 rounded-full text-white hover:bg-white/20 transition-colors"
+                aria-label="Instagram"
               >
-                <Instagram className="h-6 w-6" />
+                <Instagram className="h-5 w-5 sm:h-6 sm:w-6" />
               </a>
             </div>
             <p className="text-white/60 text-sm">Follow us on social media</p>
@@ -419,6 +423,7 @@ const Index = () => {
       </section>
       
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

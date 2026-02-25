@@ -12,22 +12,22 @@ const Contact = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Contact Us</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      <div className="pt-24 sm:pt-32 pb-12 sm:pb-16 px-5 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-10 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">Contact Us</h1>
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Have questions or need more information? We'd love to hear from you. Reach out to us using any of the methods below.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12 sm:mb-16">
           {/* Contact Form */}
           <div>
             <Card>
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-6">Send us a Message</h2>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <CardContent className="p-5 sm:p-6">
+                <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-5 sm:mb-6">Send us a Message</h2>
+                <form className="space-y-5 sm:space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                     <div className="space-y-2">
                       <label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name</label>
                       <Input id="firstName" placeholder="Your first name" />
@@ -135,9 +135,9 @@ const Contact = () => {
         </div>
         
         {/* Map */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Find Us</h2>
-          <div className="h-96 bg-gray-200 rounded-lg">
+        <div className="mb-12 sm:mb-16">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center">Find Us</h2>
+          <div className="h-64 sm:h-80 lg:h-96 bg-gray-200 rounded-lg">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.330269774421!2d78.48851777464904!3d17.395930883492763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99da7fbc0a5f%3A0xb1678f529593914c!2sCHURCH%20OF%20CHRIST%20NARAYANAGUDA!5e0!3m2!1sen!2sin!4v1752303470782!5m2!1sen!2sin" className="w-full h-full rounded-lg" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>

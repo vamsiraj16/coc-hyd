@@ -10,17 +10,17 @@ const About = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">About Our Church</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      <div className="pt-24 sm:pt-32 pb-12 sm:pb-16 px-5 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-10 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">About Our Church</h1>
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             We are a welcoming community of believers dedicated to following Jesus Christ and sharing His love with the world.
           </p>
         </div>
         
         {/* Mission & Vision */}
-        <div className="mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mb-10 sm:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h2>
@@ -50,9 +50,9 @@ const About = () => {
         </div>
         
         {/* Core Values */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Our Core Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mb-10 sm:mb-16">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-5 sm:mb-6 text-center">Our Core Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardContent className="pt-6">
                 <h3 className="text-xl font-medium text-gray-800 mb-2">Scripture</h3>
@@ -77,9 +77,9 @@ const About = () => {
         </div>
         
         {/* Leadership */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Our Leadership</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mb-10 sm:mb-16">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-5 sm:mb-6 text-center">Our Leadership</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardContent className="p-6 text-center">
                 <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">

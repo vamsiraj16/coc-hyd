@@ -61,16 +61,16 @@ const Ministries = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Our Ministries</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      <div className="pt-24 sm:pt-32 pb-12 sm:pb-16 px-5 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-10 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">Our Ministries</h1>
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Discover the many ways you can connect, serve, and grow through our church's ministries.
           </p>
         </div>
         
         {/* Ministry Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 mb-10 sm:mb-16">
           {ministries.map((ministry) => (
             <Card key={ministry.id} className="hover:shadow-lg transition-shadow duration-300 border-primary/20">
               <CardContent className="p-6">
@@ -86,9 +86,9 @@ const Ministries = () => {
         </div>
         
         {/* Ministry Spotlight */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Featured Ministry</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="mb-10 sm:mb-16">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-5 sm:mb-6 text-center">Featured Ministry</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div>
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">Children's Ministry</h3>
               <p className="text-gray-600 mb-4">

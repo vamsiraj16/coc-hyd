@@ -42,10 +42,10 @@ const Sermons = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Sermons & Messages</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      <div className="pt-24 sm:pt-32 pb-12 sm:pb-16 px-5 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center mb-10 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">Sermons & Messages</h1>
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Watch and listen to our latest messages, and grow in your faith through Biblical teaching and inspiration.
           </p>
         </div>
