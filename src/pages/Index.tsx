@@ -8,7 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Clock, MapPin, Calendar, ArrowRight, Facebook, Youtube, Instagram, User } from 'lucide-react';
-import { fetchYouTubeVideos, getVideoUrl, getEmbedUrl } from '@/lib/youtube';
+import { fetchYouTubeVideos, getVideoUrl } from '@/lib/youtube';
+import LazyYouTubeEmbed from '@/components/LazyYouTubeEmbed';
 import type { YouTubeVideo } from '@/lib/youtube';
 import { CHURCH_PHOTO } from '@/lib/assets';
 
@@ -223,45 +224,11 @@ const Index = () => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
                 <div className="lg:col-span-7 relative">
                   <div className="aspect-video w-full">
-                    {latestSermon.isEmbeddable ? (
-                      <iframe
-                        src={getEmbedUrl(latestSermon.id)}
-                        title={latestSermon.title}
-                        className="absolute inset-0 w-full h-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                      ></iframe>
-                    ) : (
-                      <div className="relative h-full w-full bg-gray-100">
-                        <img
-                          src={latestSermon.thumbnailUrl || `https://img.youtube.com/vi/${latestSermon.id}/hqdefault.jpg`}
-                          alt={latestSermon.title}
-                          className="h-full w-full object-cover"
-                          onError={(e) => {
-                            // Fallback to a default thumbnail if the image fails to load
-                            const target = e.target as HTMLImageElement;
-                            target.src = `https://img.youtube.com/vi/${latestSermon.id}/hqdefault.jpg`;
-                            target.onerror = () => {
-                              // If the fallback also fails, show a placeholder
-                              target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MCIgaGVpZ2h0PSI3MjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyODAiIGhlaWdodD0iNzIwIiBmaWxsPSIjZjFmMWYxIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGR5PSIuM2VtIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q2Fubm90IGxvYWQgdmlkZW8gdGh1bWJuYWlsPC90ZXh0Pjwvc3ZnPg==';
-                            };
-                          }}
-                        />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 p-4 text-center text-white">
-                          <p className="mb-4">This video can only be watched on YouTube</p>
-                          <a
-                            href={getVideoUrl(latestSermon.id)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700"
-                          >
-                            <Youtube className="h-4 w-4" />
-                            Watch on YouTube
-                          </a>
-                        </div>
-                      </div>
-                    )}
+                    <LazyYouTubeEmbed
+                      videoId={latestSermon.id}
+                      title={latestSermon.title}
+                      className="absolute inset-0 w-full h-full"
+                    />
                   </div>
                 </div>
                 

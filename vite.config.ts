@@ -26,6 +26,9 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  build: {
+    sourcemap: true,
+  },
   plugins: [react()],
   resolve: {
     alias: {

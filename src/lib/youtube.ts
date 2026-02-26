@@ -212,5 +212,5 @@ export function getVideoUrl(videoId: string): string {
 }
 
 export function getEmbedUrl(videoId: string): string {
-  return `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0`;
+  return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0`;
 } 
