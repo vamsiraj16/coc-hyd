@@ -182,7 +182,10 @@ const Index = () => {
             <div className="relative overflow-hidden rounded-lg">
               <img 
                 src={CHURCH_PHOTO} 
-                alt="Church community group photo" 
+                alt="Church of Christ Hyderabad community group photo"
+                width={800}
+                height={600}
+                loading="lazy"
                 className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg filter contrast-125 brightness-105"
               />
             </div>

@@ -19,8 +19,10 @@ const Hero = () => {
         {/* Logo */}
         <div className="mb-6 sm:mb-8 flex justify-center">
           <img 
-            src={LOGO} 
-            alt="Church of Christ Logo" 
+            src={LOGO}
+            alt="Church of Christ Logo"
+            width={200}
+            height={200}
             className="w-24 h-24 sm:w-40 sm:h-40 float-animation glow-animation rounded-full shadow-lg"
           />
         </div>

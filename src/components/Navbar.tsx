@@ -45,7 +45,9 @@ const Navbar = () => {
             <Link to="/" className="flex items-center">
               <img 
                 src={LOGO} 
-                alt="Church of Christ Logo" 
+                alt="Church of Christ Logo"
+                width={40}
+                height={40}
                 className="h-10 w-10 mr-2"
               />
               <span className="text-xl font-semibold text-primary">Church of Christ</span>
@@ -83,7 +85,9 @@ const Navbar = () => {
                   <div className="flex items-center p-5 border-b">
                     <img 
                       src={LOGO} 
-                      alt="Church of Christ Logo" 
+                      alt="Church of Christ Logo"
+                      width={40}
+                      height={40}
                       className="h-10 w-10 mr-3"
                     />
                     <span className="text-lg font-semibold text-primary">Church of Christ</span>

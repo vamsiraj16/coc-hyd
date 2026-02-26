@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import Particles from "react-tsparticles";
 import type { Container, Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
@@ -8,13 +8,22 @@ interface ParticleBackgroundProps {
 }
 
 const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ className }) => {
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShouldRender(true), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    console.log("Particles container loaded", container);
-  }, []);
+  const particlesLoaded = useCallback(async (_container: Container | undefined) => {}, []);
+
+  if (!shouldRender) return null;
+
+  const isMobile = window.innerWidth < 768;
 
   return (
     <Particles
@@ -28,7 +37,7 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ className }) =>
             value: "transparent",
           },
         },
-        fpsLimit: 60,
+        fpsLimit: isMobile ? 30 : 60,
         particles: {
           color: {
             value: "#e1232b",
@@ -43,19 +52,15 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ className }) =>
               default: "out",
             },
             random: false,
-            speed: 4,
+            speed: isMobile ? 2 : 4,
             straight: true,
-            path: {
-              enable: false,
-            }
           },
           number: {
             density: {
               enable: true,
               area: 800,
             },
-            value: 150,
-            limit: 0
+            value: isMobile ? 40 : 80,
           },
           opacity: {
             value: 0.3,
@@ -72,26 +77,9 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ className }) =>
           size: {
             value: { min: 1, max: 2 },
             animation: {
-              enable: true,
-              speed: 2,
-              minimumValue: 0.1,
-              sync: false
+              enable: false,
             }
           },
-          life: {
-            duration: {
-              sync: true,
-              value: 3
-            },
-            count: 0
-          },
-          spawn: {
-            enable: true,
-            rate: {
-              quantity: 10,
-              delay: 0.1
-            }
-          }
         },
         detectRetina: true,
       }}
