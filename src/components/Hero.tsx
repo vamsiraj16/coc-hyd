@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import ParticleBackground from './ParticleBackground';
+import { LOGO } from '@/lib/assets';
 
 const Hero = () => {
   return (
@@ -18,7 +19,7 @@ const Hero = () => {
         {/* Logo */}
         <div className="mb-6 sm:mb-8 flex justify-center">
           <img 
-            src="/lovable-uploads/3618bc0d-192c-4a06-9493-a5ced09a3873.png" 
+            src={LOGO} 
             alt="Church of Christ Logo" 
             className="w-24 h-24 sm:w-40 sm:h-40 float-animation glow-animation rounded-full shadow-lg"
           />

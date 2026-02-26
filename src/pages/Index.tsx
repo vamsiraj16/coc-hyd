@@ -10,6 +10,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Clock, MapPin, Calendar, ArrowRight, Facebook, Youtube, Instagram, User } from 'lucide-react';
 import { fetchYouTubeVideos, getVideoUrl, getEmbedUrl } from '@/lib/youtube';
 import type { YouTubeVideo } from '@/lib/youtube';
+import { CHURCH_PHOTO } from '@/lib/assets';
 
 const Index = () => {
   const upcomingEvents = [
@@ -180,7 +181,7 @@ const Index = () => {
             
             <div className="relative overflow-hidden rounded-lg">
               <img 
-                src="/lovable-uploads/church.png" 
+                src={CHURCH_PHOTO} 
                 alt="Church community group photo" 
                 className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg filter contrast-125 brightness-105"
               />

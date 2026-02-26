@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { LOGO } from '@/lib/assets';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +44,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/3618bc0d-192c-4a06-9493-a5ced09a3873.png" 
+                src={LOGO} 
                 alt="Church of Christ Logo" 
                 className="h-10 w-10 mr-2"
               />
@@ -81,7 +82,7 @@ const Navbar = () => {
                   {/* Header */}
                   <div className="flex items-center p-5 border-b">
                     <img 
-                      src="/lovable-uploads/3618bc0d-192c-4a06-9493-a5ced09a3873.png" 
+                      src={LOGO} 
                       alt="Church of Christ Logo" 
                       className="h-10 w-10 mr-3"
                     />
