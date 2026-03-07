@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
-import { Clock, MapPin, Music, Book, Heart, Users, Calendar } from 'lucide-react';
+import { Clock, MapPin, Music, Book, Heart, Users, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 
 const Services = () => {
   return (
@@ -19,7 +19,7 @@ const Services = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 mb-10 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-16">
           <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-primary/20">
             <div className="h-48 bg-primary/10 flex items-center justify-center">
               <Users className="h-16 w-16 text-primary" />
@@ -30,7 +30,7 @@ const Services = () => {
               <div className="flex items-start gap-3 mb-3">
                 <Clock className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <p className="font-medium">10:30 AM - 12:00 PM</p>
+                  <p className="font-medium">11:00 AM - 1:00 PM</p>
                   <p className="text-gray-600 text-sm">Every Sunday</p>
                 </div>
               </div>
@@ -38,8 +38,8 @@ const Services = () => {
               <div className="flex items-start gap-3 mb-4">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <p className="font-medium">Main Sanctuary</p>
-                  <p className="text-gray-600 text-sm">YMCA Narayanaguda, Hyderabad</p>
+                  <p className="font-medium">YMCA, Narayanaguda</p>
+                  <p className="text-gray-600 text-sm">Hyderabad, Telangana 500029</p>
                 </div>
               </div>
               
@@ -64,7 +64,9 @@ const Services = () => {
               </div>
               
               <div className="mt-4 text-center">
-                <Button className="bg-primary hover:bg-primary/90">Plan Your Visit</Button>
+                <Link to="/contact">
+                  <Button className="bg-primary hover:bg-primary/90">Contact Us</Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
@@ -74,21 +76,21 @@ const Services = () => {
               <Book className="h-16 w-16 text-primary" />
             </div>
             <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Wednesday Bible Study</h2>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Bible Study</h2>
               
               <div className="flex items-start gap-3 mb-3">
                 <Clock className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <p className="font-medium">7:00 PM - 8:30 PM</p>
-                  <p className="text-gray-600 text-sm">Every Wednesday</p>
+                  <p className="font-medium">9:00 PM</p>
+                  <p className="text-gray-600 text-sm">Every Tuesday, Thursday & Saturday</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-3 mb-4">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <p className="font-medium">Fellowship Hall</p>
-                  <p className="text-gray-600 text-sm">YMCA Narayanaguda, Hyderabad</p>
+                  <p className="font-medium">Online</p>
+                  <p className="text-gray-600 text-sm">Details will be provided on demand</p>
                 </div>
               </div>
               
@@ -113,57 +115,65 @@ const Services = () => {
               </div>
               
               <div className="mt-4 text-center">
-                <Button className="bg-primary hover:bg-primary/90">Join Us</Button>
+                <Link to="/contact">
+                  <Button className="bg-primary hover:bg-primary/90">Contact Us</Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
         </div>
-        
-        {/* <div className="mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Special Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-center mb-4">
-                  <Calendar className="h-8 w-8 text-primary" />
+
+        {/* Additional classes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-primary/20">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Women's Class</h2>
+              <div className="flex items-start gap-3 mb-3">
+                <Clock className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">8:30 PM</p>
+                  <p className="text-gray-600 text-sm">Every Wednesday</p>
                 </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Easter Service</h3>
-                <p className="text-gray-600 mb-2">A celebration of Christ's resurrection with special music and worship.</p>
-                <p className="text-sm text-gray-500">Next service: April 17, 2025</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-center mb-4">
-                  <Calendar className="h-8 w-8 text-primary" />
+              </div>
+              <div className="flex items-start gap-3 mb-4">
+                <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">Online</p>
+                  <p className="text-gray-600 text-sm">Details will be provided on demand</p>
                 </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Christmas Eve</h3>
-                <p className="text-gray-600 mb-2">Candlelight service celebrating the birth of Jesus Christ.</p>
-                <p className="text-sm text-gray-500">Next service: December 24, 2024</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-center mb-4">
-                  <Calendar className="h-8 w-8 text-primary" />
+              </div>
+              <div className="mt-4 text-center">
+                <Link to="/contact">
+                  <Button className="bg-primary hover:bg-primary/90">Contact Us</Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-primary/20">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Youth Class</h2>
+              <div className="flex items-start gap-3 mb-3">
+                <Clock className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">8:00 PM</p>
+                  <p className="text-gray-600 text-sm">Every Tuesday, Thursday & Saturday</p>
                 </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Thanksgiving Service</h3>
-                <p className="text-gray-600 mb-2">A time of gratitude and praise for God's blessings throughout the year.</p>
-                <p className="text-sm text-gray-500">Next service: November 23, 2024</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div> */}
-        
-        <div className="text-center">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">What to Expect</h2>
-          <p className="text-gray-600 mb-6 max-w-3xl mx-auto">
-            Our services are welcoming and accessible to everyone. You'll experience uplifting worship music, 
-            relevant teaching from God's Word, and a friendly community of believers.
-          </p>
-          <Button className="bg-primary hover:bg-primary/90">Learn More</Button>
+              </div>
+              <div className="flex items-start gap-3 mb-4">
+                <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-medium">Online</p>
+                  <p className="text-gray-600 text-sm">Details will be provided on demand</p>
+                </div>
+              </div>
+              <div className="mt-4 text-center">
+                <Link to="/contact">
+                  <Button className="bg-primary hover:bg-primary/90">Contact Us</Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
       

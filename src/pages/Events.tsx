@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -37,8 +38,8 @@ const Events = () => {
               <div className="flex items-start gap-3 mb-4">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <p className="font-medium">Community Center</p>
-                  <p className="text-gray-600 text-sm">123 Faith Street</p>
+                  <p className="font-medium">YMCA, Narayanaguda</p>
+                  <p className="text-gray-600 text-sm">Hyderabad, Telangana</p>
                 </div>
               </div>
               
@@ -50,11 +51,11 @@ const Events = () => {
               <div className="grid grid-cols-3 gap-2 text-center text-sm">
                 <div className="flex flex-col items-center">
                   <Users className="h-5 w-5 text-primary mb-1" />
-                  <span>Volunteer</span>
+                  <span>Community</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <Heart className="h-5 w-5 text-primary mb-1" />
-                  <span>Donate</span>
+                  <span>Service</span>
                 </div>
                 <div className="flex flex-col items-center">
                   <Music className="h-5 w-5 text-primary mb-1" />
@@ -63,7 +64,9 @@ const Events = () => {
               </div>
               
               <div className="mt-4 text-center">
-                <Button className="bg-primary hover:bg-primary/90">Register Now</Button>
+                <Link to="/contact">
+                  <Button className="bg-primary hover:bg-primary/90">Contact Us</Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
@@ -78,21 +81,21 @@ const Events = () => {
               <div className="flex items-start gap-3 mb-3">
                 <Clock className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <p className="font-medium">Friday, 6:00 PM - 8:00 PM</p>
-                  <p className="text-gray-600 text-sm">Weekly Event</p>
+                  <p className="font-medium">8:00 PM</p>
+                  <p className="text-gray-600 text-sm">Every Tue, Thu & Sat</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-3 mb-4">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
                 <div>
-                  <p className="font-medium">Youth Center</p>
-                  <p className="text-gray-600 text-sm">123 Faith Street</p>
+                  <p className="font-medium">Online</p>
+                  <p className="text-gray-600 text-sm">Details will be provided on demand</p>
                 </div>
               </div>
               
               <p className="text-gray-600 mb-4">
-                A fun and engaging Bible study for youth ages 13-18. Games, discussions, 
+                A fun and engaging Bible study for youth. Games, discussions, 
                 and activities designed to help young people grow in their faith.
               </p>
               
@@ -112,56 +115,12 @@ const Events = () => {
               </div>
               
               <div className="mt-4 text-center">
-                <Button className="bg-primary hover:bg-primary/90">Join Us</Button>
+                <Link to="/contact">
+                  <Button className="bg-primary hover:bg-primary/90">Contact Us</Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
-        </div>
-        
-        {/* <div className="mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Special Events</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-center mb-4">
-                  <Calendar className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Christmas Concert</h3>
-                <p className="text-gray-600 mb-2">Annual Christmas concert featuring our choir and special guests.</p>
-                <p className="text-sm text-gray-500">December 15, 2024</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-center mb-4">
-                  <Calendar className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Easter Celebration</h3>
-                <p className="text-gray-600 mb-2">Special service and activities celebrating Christ's resurrection.</p>
-                <p className="text-sm text-gray-500">April 17, 2025</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="border-primary/20 hover:shadow-md transition-shadow duration-300">
-              <CardContent className="pt-6">
-                <div className="flex items-center justify-center mb-4">
-                  <Calendar className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2 text-center">Summer Camp</h3>
-                <p className="text-gray-600 mb-2">Annual youth summer camp with activities, worship, and fellowship.</p>
-                <p className="text-sm text-gray-500">July 10-15, 2025</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div> */}
-        
-        <div className="text-center">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Stay Updated</h2>
-          <p className="text-gray-600 mb-6 max-w-3xl mx-auto">
-            Subscribe to our newsletter to receive updates about upcoming events and activities.
-          </p>
-          <Button className="bg-primary hover:bg-primary/90">Subscribe Now</Button>
         </div>
       </div>
       

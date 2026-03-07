@@ -5,9 +5,8 @@ import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Clock, MapPin, Calendar, ArrowRight, Facebook, Youtube, Instagram, User } from 'lucide-react';
+import { Clock, MapPin, Calendar, ArrowRight, Facebook, Youtube, Instagram, User, Phone } from 'lucide-react';
 import { fetchYouTubeVideos, getVideoUrl } from '@/lib/youtube';
 import LazyYouTubeEmbed from '@/components/LazyYouTubeEmbed';
 import type { YouTubeVideo } from '@/lib/youtube';
@@ -19,23 +18,40 @@ const Index = () => {
       id: 1,
       title: "Sunday Worship Service",
       date: "Every Sunday",
-      time: "10:30 AM",
-      location: "Main Sanctuary"
+      time: "11:00 AM",
+      location: "YMCA, Narayanaguda"
     },
     {
       id: 2,
       title: "Bible Study",
-      date: "Every Wednesday",
-      time: "7:00 PM",
-      location: "Fellowship Hall"
+      date: "Every Tue, Thu & Sat",
+      time: "9:00 PM",
+      location: "Online",
+      note: "Details will be provided on demand",
     },
     {
       id: 3,
-      title: "Community Food Drive",
-      date: "April 15, 2025",
-      time: "9:00 AM - 2:00 PM",
-      location: "Church Parking Lot"
-    }
+      title: "Daily Devotion",
+      date: "Every Day",
+      time: "6:00 AM",
+      location: "Online"
+    },
+    {
+      id: 4,
+      title: "Women's Class",
+      date: "Every Wednesday",
+      time: "8:30 PM",
+      location: "Online",
+      note: "Details will be provided on demand",
+    },
+    {
+      id: 5,
+      title: "Youth Class",
+      date: "Every Tue, Thu & Sat",
+      time: "8:00 PM",
+      location: "Online",
+      note: "Details will be provided on demand",
+    },
   ];
 
   const [loading, setLoading] = React.useState(true);
@@ -45,7 +61,7 @@ const Index = () => {
   React.useEffect(() => {
     async function loadLatestSermon() {
       try {
-        const videos = await fetchYouTubeVideos(1); // Get only the latest video
+        const videos = await fetchYouTubeVideos(1);
         if (videos.length > 0) {
           setLatestSermon(videos[0]);
         }
@@ -127,9 +143,9 @@ const Index = () => {
                 <p className="text-gray-600 mb-4">
                   Put your faith into action by serving our church, community, and world in Christ's name.
                 </p>
-                <Link to="/ministries">
+                <Link to="/contact">
                   <Button variant="link" className="flex items-center mx-auto text-primary">
-                    Explore Ministries
+                    Get in Touch
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -157,7 +173,7 @@ const Index = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-800">Sunday Worship</h3>
-                    <p className="text-gray-600">10:30 AM - 12:00 PM</p>
+                    <p className="text-gray-600">11:00 AM - 1:00 PM</p>
                   </div>
                 </div>
                 
@@ -174,9 +190,9 @@ const Index = () => {
               </div>
               
               <div className="mt-8">
-                <Link to="/contact">
+                <a href="https://maps.app.goo.gl/YyAQdzmGXRmgymg66" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-primary hover:bg-primary/90">Get Directions</Button>
-                </Link>
+                </a>
               </div>
             </div>
             
@@ -304,7 +320,7 @@ const Index = () => {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {upcomingEvents.map((event) => (
               <Card key={event.id} className="hover:shadow-md transition-shadow duration-300 border-primary/20">
                 <CardContent className="p-5 sm:p-6">
@@ -323,10 +339,12 @@ const Index = () => {
                       <span>{event.location}</span>
                     </div>
                   </div>
-                  <Button variant="link" className="p-0 flex items-center text-primary">
-                    Event Details
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  {'note' in event && (
+                    <p className="text-sm text-gray-500 mb-2">
+                      {event.note}{' '}
+                      <Link to="/contact" className="text-primary hover:underline">Contact us</Link>
+                    </p>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -334,62 +352,45 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Stay Connected */}
+      {/* Follow Us */}
       <section className="py-12 sm:py-16 px-5 sm:px-6 lg:px-8 bg-gradient-to-br from-primary to-primary/90 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,transparent,black)] pointer-events-none" />
         <div className="max-w-7xl mx-auto text-center relative">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Stay Connected</h2>
-          <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8">
-            Subscribe to our newsletter and follow us on social media to stay updated with our latest news, events, and messages.
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Follow Us on Social Media</h2>
+          <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto mb-8 sm:mb-10">
+            Stay updated with our latest news, events, and messages by following us on social media.
           </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-12">
-            <div className="flex-1 max-w-md w-full">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 h-12"
-                />
-                <Button className="bg-white text-primary hover:bg-white/90 font-semibold h-12 px-6 shrink-0">
-                  Subscribe
-                </Button>
-              </div>
-            </div>
-          </div>
 
-          <div className="flex flex-col items-center">
-            <div className="flex justify-center space-x-6 sm:space-x-8 mb-4 sm:mb-6">
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-white/10 p-3.5 rounded-full text-white hover:bg-white/20 transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5 sm:h-6 sm:w-6" />
-              </a>
-              <a 
-                href="https://youtube.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-white/10 p-3.5 rounded-full text-white hover:bg-white/20 transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="h-5 w-5 sm:h-6 sm:w-6" />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-white/10 p-3.5 rounded-full text-white hover:bg-white/20 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5 sm:h-6 sm:w-6" />
-              </a>
-            </div>
-            <p className="text-white/60 text-sm">Follow us on social media</p>
+          <div className="flex justify-center space-x-6 sm:space-x-8 mb-4 sm:mb-6">
+            <a 
+              href="https://www.facebook.com/profile.php?id=61575011498498" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-white/10 p-3.5 rounded-full text-white hover:bg-white/20 transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="h-5 w-5 sm:h-6 sm:w-6" />
+            </a>
+            <a 
+              href="https://www.youtube.com/@ChurchofChristNarayanaguda" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-white/10 p-3.5 rounded-full text-white hover:bg-white/20 transition-colors"
+              aria-label="YouTube"
+            >
+              <Youtube className="h-5 w-5 sm:h-6 sm:w-6" />
+            </a>
+            <a 
+              href="https://www.instagram.com/churchofchrist_narayanaguda" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-white/10 p-3.5 rounded-full text-white hover:bg-white/20 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-5 w-5 sm:h-6 sm:w-6" />
+            </a>
           </div>
+          <p className="text-white/60 text-sm">Follow us on social media</p>
         </div>
       </section>
       

@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSending(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const mailtoSubject = encodeURIComponent(data.get('subject') as string || 'Website Inquiry');
+    const mailtoBody = encodeURIComponent(
+      `Name: ${data.get('firstName')} ${data.get('lastName')}\nEmail: ${data.get('email')}\nPhone: ${data.get('phone') || 'N/A'}\n\nMessage:\n${data.get('message')}`
+    );
+
+    window.location.href = `mailto:info@churchofchrist.org?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+    setTimeout(() => {
+      setSending(false);
+      setSubmitted(true);
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -26,40 +49,52 @@ const Contact = () => {
             <Card>
               <CardContent className="p-5 sm:p-6">
                 <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-5 sm:mb-6">Send us a Message</h2>
-                <form className="space-y-5 sm:space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name</label>
-                      <Input id="firstName" placeholder="Your first name" />
+
+                {submitted ? (
+                  <div className="text-center py-12">
+                    <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Thank you!</h3>
+                    <p className="text-gray-600 mb-4">Your email client should have opened with the message. If not, please email us directly at info@churchofchrist.org</p>
+                    <Button onClick={() => setSubmitted(false)} variant="outline">Send Another Message</Button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                      <div className="space-y-2">
+                        <label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name</label>
+                        <Input id="firstName" name="firstName" placeholder="Your first name" required />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name</label>
+                        <Input id="lastName" name="lastName" placeholder="Your last name" required />
+                      </div>
                     </div>
+                    
                     <div className="space-y-2">
-                      <label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name</label>
-                      <Input id="lastName" placeholder="Your last name" />
+                      <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
+                      <Input id="email" name="email" type="email" placeholder="Your email address" required />
                     </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
-                    <Input id="email" type="email" placeholder="Your email address" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone (optional)</label>
-                    <Input id="phone" placeholder="Your phone number" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium text-gray-700">Subject</label>
-                    <Input id="subject" placeholder="What is this regarding?" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-gray-700">Message</label>
-                    <Textarea id="message" placeholder="How can we help you?" rows={5} />
-                  </div>
-                  
-                  <Button type="submit" className="w-full">Send Message</Button>
-                </form>
+                    
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone (optional)</label>
+                      <Input id="phone" name="phone" placeholder="Your phone number" />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <label htmlFor="subject" className="text-sm font-medium text-gray-700">Subject</label>
+                      <Input id="subject" name="subject" placeholder="What is this regarding?" required />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-sm font-medium text-gray-700">Message</label>
+                      <Textarea id="message" name="message" placeholder="How can we help you?" rows={5} required />
+                    </div>
+                    
+                    <Button type="submit" className="w-full" disabled={sending}>
+                      {sending ? 'Opening email...' : 'Send Message'}
+                    </Button>
+                  </form>
+                )}
               </CardContent>
             </Card>
           </div>
@@ -94,7 +129,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-800">Phone</h3>
-                    <p className="text-gray-600">+91 98480 12345</p>
+                    <p className="text-gray-600">
+                      <a href="tel:+916301926929" className="hover:text-primary">+91 63019 26929</a>
+                    </p>
                     <p className="text-gray-600 text-sm">We'll respond as soon as possible</p>
                   </div>
                 </div>
@@ -105,31 +142,13 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-800">Email</h3>
-                    <p className="text-gray-600">info@churchofchrist.org</p>
+                    <p className="text-gray-600">
+                      <a href="mailto:info@churchofchrist.org" className="hover:text-primary">info@churchofchrist.org</a>
+                    </p>
                     <p className="text-gray-600 text-sm">We'll respond as soon as possible</p>
                   </div>
                 </div>
               </div>
-            </div>
-            
-            <div>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-6">Office Hours</h2>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Sunday</span>
-                  <span className="font-medium">10:30 AM - 1:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Monday - Saturday</span>
-                  <span className="font-medium">Closed</span>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Staff Directory</h2>
-              <p className="text-gray-600 mb-4">Need to reach a specific staff member? Visit our staff directory.</p>
-              <Button variant="outline">View Staff Directory</Button>
             </div>
           </div>
         </div>
@@ -138,7 +157,7 @@ const Contact = () => {
         <div className="mb-12 sm:mb-16">
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 sm:mb-6 text-center">Find Us</h2>
           <div className="h-64 sm:h-80 lg:h-96 bg-gray-200 rounded-lg">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.330269774421!2d78.48851777464904!3d17.395930883492763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99da7fbc0a5f%3A0xb1678f529593914c!2sCHURCH%20OF%20CHRIST%20NARAYANAGUDA!5e0!3m2!1sen!2sin!4v1752303470782!5m2!1sen!2sin" className="w-full h-full rounded-lg" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.330269774421!2d78.48851777464904!3d17.395930883492763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99da7fbc0a5f%3A0xb1678f529593914c!2sCHURCH%20OF%20CHRIST%20NARAYANAGUDA!5e0!3m2!1sen!2sin!4v1752303470782!5m2!1sen!2sin" className="w-full h-full rounded-lg" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/profile.php?id=61575011498498" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-600 hover:text-primary transition-colors p-2 -ml-2 rounded-full hover:bg-primary/5"
@@ -23,7 +23,7 @@ const Footer = () => {
                 <Facebook className="h-5 w-5 sm:h-6 sm:w-6" />
               </a>
               <a 
-                href="https://youtube.com" 
+                href="https://www.youtube.com/@ChurchofChristNarayanaguda" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-600 hover:text-primary transition-colors p-2 rounded-full hover:bg-primary/5"
@@ -32,7 +32,7 @@ const Footer = () => {
                 <Youtube className="h-5 w-5 sm:h-6 sm:w-6" />
               </a>
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/churchofchrist_narayanaguda" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-600 hover:text-primary transition-colors p-2 rounded-full hover:bg-primary/5"
@@ -57,11 +57,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-800">Connect</h3>
             <ul className="space-y-2.5">
-              <li><Link to="/ministries" className="text-gray-700 hover:text-primary text-sm sm:text-base py-1 inline-block">Ministries</Link></li>
               <li><Link to="/contact" className="text-gray-700 hover:text-primary text-sm sm:text-base py-1 inline-block">Contact</Link></li>
               <li><a href="#" className="text-gray-700 hover:text-primary text-sm sm:text-base py-1 inline-block">Prayer Requests</a></li>
-              <li><a href="#" className="text-gray-700 hover:text-primary text-sm sm:text-base py-1 inline-block">Volunteer</a></li>
-              <li><a href="#" className="text-gray-700 hover:text-primary text-sm sm:text-base py-1 inline-block">Give Online</a></li>
             </ul>
           </div>
           
@@ -71,7 +68,7 @@ const Footer = () => {
               <p>YMCA Narayanaguda</p>
               <p>Hyderabad, Telangana 500029</p>
               <p className="mt-3 pt-3 border-t border-gray-200">
-                <a href="tel:+919848012345" className="hover:text-primary">+91 98480 12345</a>
+                <a href="tel:+916301926929" className="hover:text-primary">+91 63019 26929</a>
               </p>
               <p>
                 <a href="mailto:info@churchofchrist.org" className="hover:text-primary">info@churchofchrist.org</a>

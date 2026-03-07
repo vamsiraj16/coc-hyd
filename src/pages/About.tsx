@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Users, Heart, Globe, BookOpen } from 'lucide-react';
+import { Heart, Globe } from 'lucide-react';
 
 const About = () => {
   return (
@@ -76,47 +77,13 @@ const About = () => {
           </div>
         </div>
         
-        {/* Leadership */}
-        <div className="mb-10 sm:mb-16">
-          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-5 sm:mb-6 text-center">Our Leadership</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-            <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-12 w-12 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2">Pastoral Team</h3>
-                <p className="text-gray-600">Led by our senior pastor and supported by a team of dedicated ministers.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="h-12 w-12 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2">Elders</h3>
-                <p className="text-gray-600">Spiritual leaders who provide guidance and oversight to our church family.</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-12 w-12 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-gray-800 mb-2">Deacons</h3>
-                <p className="text-gray-600">Servant leaders who assist in the practical needs of our church community.</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-        
         {/* Call to Action */}
         <div className="text-center">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Join Our Community</h2>
           <p className="text-gray-600 mb-6">We'd love to welcome you to our church family. Come visit us this Sunday!</p>
-          <Button className="bg-primary hover:bg-primary/90">Plan Your Visit</Button>
+          <Link to="/contact">
+            <Button className="bg-primary hover:bg-primary/90">Plan Your Visit</Button>
+          </Link>
         </div>
       </div>
       

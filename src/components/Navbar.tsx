@@ -23,7 +23,6 @@ const Navbar = () => {
     { name: 'Services', path: '/services' },
     { name: 'Events', path: '/events' },
     { name: 'Sermons', path: '/sermons' },
-    { name: 'Ministries', path: '/ministries' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -40,7 +39,6 @@ const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo/Church Name */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
@@ -54,7 +52,6 @@ const Navbar = () => {
             </Link>
           </div>
           
-          {/* Navigation Menu - Desktop */}
           <nav className="hidden md:flex space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <Link 
@@ -71,7 +68,6 @@ const Navbar = () => {
             ))}
           </nav>
           
-          {/* Mobile menu */}
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -81,7 +77,6 @@ const Navbar = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] sm:w-[320px] p-0">
                 <div className="flex flex-col h-full">
-                  {/* Header */}
                   <div className="flex items-center p-5 border-b">
                     <img 
                       src={LOGO} 
@@ -93,7 +88,6 @@ const Navbar = () => {
                     <span className="text-lg font-semibold text-primary">Church of Christ</span>
                   </div>
 
-                  {/* Nav links */}
                   <nav className="flex flex-col flex-1 py-4 px-3 overflow-y-auto">
                     {navItems.map((item) => (
                       <Link
@@ -111,10 +105,9 @@ const Navbar = () => {
                     ))}
                   </nav>
 
-                  {/* Footer info */}
                   <div className="border-t p-5 bg-gray-50">
                     <p className="text-sm font-medium text-gray-800">Sunday Worship</p>
-                    <p className="text-sm text-gray-600">10:30 AM — YMCA Narayanaguda</p>
+                    <p className="text-sm text-gray-600">11:00 AM — YMCA Narayanaguda</p>
                   </div>
                 </div>
               </SheetContent>
