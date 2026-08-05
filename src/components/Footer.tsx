@@ -68,7 +68,7 @@ const Footer = () => {
               <p>YMCA Narayanaguda</p>
               <p>Hyderabad, Telangana 500029</p>
               <p className="mt-3 pt-3 border-t border-gray-200">
-                <a href="tel:+916301926929" className="hover:text-primary">+91 63019 26929</a>
+                <a href="tel:+919381306033" className="hover:text-primary">+91 9381306033</a>
               </p>
               <p>
                 <a href="mailto:info@churchofchrist.org" className="hover:text-primary">info@churchofchrist.org</a>
